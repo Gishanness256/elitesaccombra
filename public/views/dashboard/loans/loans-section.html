@@ -1,0 +1,52 @@
+<div class="kpis" id="lk">
+  <!-- app.js renders active-loan KPIs here -->
+</div>
+
+<div class="card">
+  <h3>Loans</h3>
+
+  <div class="row">
+    <div>
+      <label for="lf">Show</label>
+      <select id="lf">
+        <option value="active">Active loans</option>
+        <option value="cleared">Cleared loans</option>
+        <option value="all">All loans</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="ls">Search</label>
+      <input id="ls" type="search" placeholder="Borrower, account or loan reference" autocomplete="off">
+    </div>
+  </div>
+
+  <div class="noprint">
+    <button class="btn" id="ex1" type="button">Export Excel</button>
+    <button class="btn alt2" id="ex2" type="button">Export CSV</button>
+    <button class="btn alt2" id="ex3" type="button">Export PDF</button>
+    <button class="btn alt2" id="ex4" type="button">Print</button>
+  </div>
+
+  <div class="card">
+    <h3>Import old cleared and active loans</h3>
+    <label for="lu">Import loan records (.xlsx, .xls, .csv or .pdf)</label>
+    <input type="file" id="lu" accept=".xlsx,.xls,.csv,.pdf">
+    <p class="note">
+      Import columns include Account (blank for non-members), Name, Telephone,
+      Category, Term, Principal, Rate, Date, Amount paid, Balance and Status.
+    </p>
+
+    <button class="btn alt2" id="tp" type="button">Download import template</button>
+  </div>
+
+  <div id="msg" class="msg" role="status" aria-live="polite"></div>
+
+  <div id="lt">
+    <!-- app.js renders the loans table here; loan rows use data-m to open details -->
+  </div>
+</div>
+
+<div id="ld">
+  <!-- app.js renders the selected loan details and repayment history here -->
+</div>
