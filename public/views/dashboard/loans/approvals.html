@@ -1,0 +1,84 @@
+<div class="card">
+  <h3>Awaiting decision</h3>
+
+  <div id="msg" class="msg" role="status" aria-live="polite"></div>
+
+  <div class="tw">
+    <table>
+      <thead>
+        <tr>
+          <th>Ref</th>
+          <th>Date</th>
+          <th>Applicant</th>
+          <th>Contact</th>
+          <th>Category</th>
+          <th>Term</th>
+          <th>Amount</th>
+          <th>Rate %/mo</th>
+          <th>Member standing</th>
+          <th>Remark / decision</th>
+        </tr>
+      </thead>
+      <tbody id="pendingLoanRequests">
+        <!-- app.js renders pending request rows here -->
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="card">
+  <h3>Decision history</h3>
+
+  <div class="tw">
+    <table>
+      <thead>
+        <tr>
+          <th>Ref</th>
+          <th>Applicant</th>
+          <th>Category</th>
+          <th>Amount</th>
+          <th>Status</th>
+          <th>Decided by</th>
+          <th>Date</th>
+          <th>Remark</th>
+        </tr>
+      </thead>
+      <tbody id="loanDecisionHistory">
+        <!-- app.js renders completed request rows here -->
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<template id="pendingLoanRequestRow">
+  <tr>
+    <td data-field="ref"></td>
+    <td data-field="date"></td>
+    <td data-field="applicant"></td>
+    <td data-field="contact"></td>
+    <td data-field="category"></td>
+    <td data-field="term"></td>
+    <td data-field="amount"></td>
+    <td data-field="rate"></td>
+    <td data-field="standing"></td>
+    <td>
+      <input type="text" data-rm placeholder="Remark (required to hold or reject)">
+      <button class="btn sm" type="button" data-d="Approved" data-id>Approve</button>
+      <button class="btn alt2 sm" type="button" data-d="On Hold" data-id>On Hold</button>
+      <button class="btn alt2 sm" type="button" data-d="Rejected" data-id>Reject</button>
+    </td>
+  </tr>
+</template>
+
+<template id="loanDecisionHistoryRow">
+  <tr>
+    <td data-field="ref"></td>
+    <td data-field="applicant"></td>
+    <td data-field="category"></td>
+    <td data-field="amount"></td>
+    <td data-field="status"></td>
+    <td data-field="decided-by"></td>
+    <td data-field="date"></td>
+    <td data-field="remark"></td>
+  </tr>
+</template>
