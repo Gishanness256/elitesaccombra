@@ -1,0 +1,29 @@
+from pathlib import Path
+import base64
+import re
+
+source = Path("index.html")
+destination = Path("public/images/logo.jpg")
+
+html = source.read_text(encoding="utf-8")
+
+match = re.search(
+    r"""<img\b[^>]*\bsrc=["']data:image/jpeg;base64,([^"']+)["']""",
+    html,
+    flags=re.IGNORECASE | re.DOTALL,
+)
+
+if not match:
+    raise SystemExit("No embedded JPEG logo was found in index.html.")
+
+image_data = re.sub(r"\s+", "", match.group(1))
+
+try:
+    jpeg_bytes = base64.b64decode(image_data, validate=True)
+except ValueError as error:
+    raise SystemExit(f"The embedded logo data is incomplete or invalid: {error}")
+
+destination.parent.mkdir(parents=True, exist_ok=True)
+destination.write_bytes(jpeg_bytes)
+
+print(f"Extracted logo to {destination}")
