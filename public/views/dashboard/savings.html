@@ -1,0 +1,83 @@
+<div class="card">
+  <h3>Record a member's deposit or withdrawal request</h3>
+
+  <div class="row">
+    <div>
+      <label for="sa">Member (account)</label>
+      <select id="sa">
+        <option value="">— select member —</option>
+        <!-- app.js populates options from current members -->
+      </select>
+    </div>
+
+    <div>
+      <label for="sk">Transaction type</label>
+      <select id="sk">
+        <option value="d">Deposit</option>
+        <option value="w">Withdrawal</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="sm">Amount (UGX)</label>
+      <input id="sm" type="number" min="1" step="1000">
+    </div>
+
+    <div>
+      <label for="sd">Date and time</label>
+      <input id="sd" type="datetime-local">
+    </div>
+
+    <div>
+      <label for="sc">Channel</label>
+      <select id="sc">
+        <option>Counter / Cash</option>
+        <option>Bank</option>
+        <option>Mobile Money</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="sr">Slip number</label>
+      <input id="sr" type="text">
+    </div>
+
+    <div class="full">
+      <label for="srm">Remarks</label>
+      <input id="srm" type="text">
+    </div>
+  </div>
+
+  <p class="note" id="sbal">Select a member to see their current savings balance.</p>
+
+  <button class="btn" id="ss" type="button">Save deposit</button>
+  <div id="msg" class="msg" role="status" aria-live="polite"></div>
+
+  <div class="row">
+    <div>
+      <label for="su">Import savings transactions</label>
+      <input id="su" type="file" accept=".xlsx,.xls,.csv">
+    </div>
+  </div>
+
+  <p class="note">
+    Import columns: Account, Date, Amount, Type, Channel, Slip No., Remarks.
+  </p>
+
+  <button class="btn alt2" id="st1" type="button">Download Excel template</button>
+  <button class="btn alt2" id="st2" type="button">Download CSV template</button>
+</div>
+
+<div class="card">
+  <h3>Recent transactions</h3>
+  <div id="recentSavings">
+    <!-- app.js renders recent savings transactions here -->
+  </div>
+</div>
+
+<div class="card">
+  <h3>Member savings by month</h3>
+  <div id="monthlySavings">
+    <!-- app.js renders monthly totals for each member here -->
+  </div>
+</div>
