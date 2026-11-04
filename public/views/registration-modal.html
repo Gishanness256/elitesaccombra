@@ -1,0 +1,70 @@
+<dialog id="regmodal" aria-labelledby="regtitle">
+  <div class="modal-card">
+    <button
+      type="button"
+      class="modal-close"
+      id="closeReg"
+      aria-label="Close registration"
+    >&times;</button>
+
+    <h2 id="regtitle">Create Account</h2>
+
+    <form id="regform" novalidate>
+      <div class="grid">
+        <div>
+          <label for="fn">First Name<span class="req" aria-hidden="true">*</span></label>
+          <input id="fn" name="first_name" type="text" autocomplete="given-name" required>
+        </div>
+
+        <div>
+          <label for="ln">Last Name<span class="req" aria-hidden="true">*</span></label>
+          <input id="ln" name="last_name" type="text" autocomplete="family-name" required>
+        </div>
+
+        <div class="full">
+          <label for="addr">Address<span class="req" aria-hidden="true">*</span></label>
+          <input id="addr" name="address" type="text" autocomplete="street-address" required>
+        </div>
+
+        <div>
+          <label for="ph">Phone<span class="req" aria-hidden="true">*</span></label>
+          <input id="ph" name="phone" type="tel" autocomplete="tel" required>
+        </div>
+
+        <div>
+          <label for="em">Email</label>
+          <input id="em" name="email" type="email" autocomplete="email">
+        </div>
+
+        <div>
+          <label for="pw1">Password<span class="req" aria-hidden="true">*</span></label>
+          <input id="pw1" name="password" type="password" autocomplete="new-password" minlength="6" required>
+        </div>
+
+        <div>
+          <label for="pw2">Confirm Password<span class="req" aria-hidden="true">*</span></label>
+          <input id="pw2" name="confirm_password" type="password" autocomplete="new-password" required>
+        </div>
+
+        <div class="full">
+          <label for="nin">NIN<span class="req" aria-hidden="true">*</span></label>
+          <input id="nin" name="nin" type="text" autocomplete="off" style="text-transform:uppercase" required>
+        </div>
+      </div>
+
+      <div id="pwmsg" role="alert"></div>
+
+      <div class="terms">
+        <input id="terms" name="terms" type="checkbox" required>
+        <label for="terms">
+          I declare that I have read and understood the Terms and Conditions of
+          signing up with Elite SACCO Mbarara.
+          <span class="req" aria-hidden="true">*</span>
+        </label>
+      </div>
+
+      <button class="btn" type="submit">Create Account</button>
+      <p class="note"><span class="req">*</span> Compulsory fields</p>
+    </form>
+  </div>
+</dialog>
