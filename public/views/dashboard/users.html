@@ -1,0 +1,117 @@
+<div class="card">
+  <h3>Create system user</h3>
+
+  <div class="row">
+    <div>
+      <label for="un">Full name</label>
+      <input id="un" type="text" autocomplete="name">
+    </div>
+
+    <div>
+      <label for="ui">Initials</label>
+      <input id="ui" type="text" maxlength="3" autocomplete="off">
+    </div>
+
+    <div>
+      <label for="ue">Login handle</label>
+      <div style="display:flex;align-items:center">
+        <input id="ue" type="text" autocomplete="username" aria-describedby="emailDomain">
+        <span id="emailDomain" class="tag">@elitesacco.co.ug</span>
+      </div>
+    </div>
+
+    <div>
+      <label for="ur">Role</label>
+      <select id="ur">
+        <option>Admin</option>
+        <option>Treasurer</option>
+        <option>Credit Supervisor</option>
+        <option>Credit Officer</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="up">Temporary password</label>
+      <input id="up" type="password" autocomplete="new-password">
+    </div>
+  </div>
+
+  <button class="btn" id="ua" type="button">Create system user</button>
+  <div id="msg" class="msg" role="status" aria-live="polite"></div>
+</div>
+
+<div class="card">
+  <h3>Reset credentials (forgotten password / login handle)</h3>
+
+  <div class="row">
+    <div>
+      <label for="rs">System user</label>
+      <select id="rs">
+        <!-- Populate with system users in app.js -->
+      </select>
+    </div>
+
+    <div>
+      <label for="rh">New login handle</label>
+      <div style="display:flex;align-items:center">
+        <input id="rh" type="text" autocomplete="username" aria-describedby="resetEmailDomain">
+        <span id="resetEmailDomain" class="tag">@elitesacco.co.ug</span>
+      </div>
+    </div>
+
+    <div>
+      <label for="rp1">New password</label>
+      <input id="rp1" type="password" autocomplete="new-password">
+    </div>
+
+    <div>
+      <label for="rp2">Confirm new password</label>
+      <input id="rp2" type="password" autocomplete="new-password">
+    </div>
+  </div>
+
+  <button class="btn" id="rb" type="button">Reset credentials</button>
+  <div id="msg2" class="msg" role="status" aria-live="polite"></div>
+</div>
+
+<div class="card">
+  <h3>System users</h3>
+  <div id="systemUsersTable">
+    <!-- Render the system-users table here; actions use data-r and data-d indices. -->
+  </div>
+</div>
+
+<div class="card">
+  <h3>SACCO members (account holders — non-system users)</h3>
+  <div id="saccoMembersTable">
+    <!-- Render the members table here. -->
+  </div>
+</div>
+
+<div class="card">
+  <h3>Non-members (borrowers without accounts — no account number)</h3>
+
+  <div class="row">
+    <div>
+      <label for="nn">Full name</label>
+      <input id="nn" type="text" autocomplete="name">
+    </div>
+
+    <div>
+      <label for="nt">Telephone</label>
+      <input id="nt" type="tel" autocomplete="tel">
+    </div>
+
+    <div>
+      <label for="nx">NIN</label>
+      <input id="nx" type="text" autocomplete="off" style="text-transform:uppercase">
+    </div>
+  </div>
+
+  <button class="btn" id="na" type="button">Add non-member</button>
+  <div id="msg3" class="msg" role="status" aria-live="polite"></div>
+
+  <div id="nonMembersTable">
+    <!-- Render the non-members table here. -->
+  </div>
+</div>
