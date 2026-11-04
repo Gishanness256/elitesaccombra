@@ -1,0 +1,76 @@
+<div class="kpis" id="liquidityKpis">
+  <!-- app.js renders portfolio outstanding and PAR 30/60/90 summary cards here -->
+</div>
+
+<div class="card">
+  <h3>Portfolio at Risk (PAR)</h3>
+  <p id="parExplanation" style="font-size:.88rem;margin-bottom:.6rem">
+    PAR = outstanding balance of loans past their due date by the stated number
+    of days ÷ total outstanding loan portfolio.
+  </p>
+
+  <div class="tw">
+    <table>
+      <thead>
+        <tr>
+          <th>PAR measure</th>
+          <th class="n">Outstanding balance</th>
+          <th class="n">Loans</th>
+          <th class="n">Portfolio percentage</th>
+        </tr>
+      </thead>
+      <tbody id="parSummary">
+        <!-- app.js renders PAR 30, PAR 60, and PAR 90 rows here -->
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="card">
+  <h3>Ageing of outstanding loans</h3>
+
+  <div id="ageingChart" aria-label="Outstanding loan balance by ageing bucket">
+    <!-- app.js renders the ageing-bucket bars here -->
+  </div>
+
+  <div class="tw">
+    <table>
+      <thead>
+        <tr>
+          <th>Bucket</th>
+          <th class="n">Loans</th>
+          <th class="n">Outstanding balance</th>
+          <th class="n">% of portfolio</th>
+        </tr>
+      </thead>
+      <tbody id="ageingBuckets">
+        <!-- app.js renders current, 1–29, 30–59, 60–89, and 90+ day buckets here -->
+      </tbody>
+    </table>
+  </div>
+
+  <div id="liquidityNotice" class="note" role="status" aria-live="polite"></div>
+</div>
+
+<div class="card">
+  <h3>Overdue loans</h3>
+
+  <div class="tw">
+    <table>
+      <thead>
+        <tr>
+          <th>Ref</th>
+          <th>Account</th>
+          <th>Borrower</th>
+          <th>Due date</th>
+          <th class="n">Days overdue</th>
+          <th class="n">Balance</th>
+          <th>PAR bucket</th>
+        </tr>
+      </thead>
+      <tbody id="overdueLoans">
+        <!-- app.js renders overdue loans here -->
+      </tbody>
+    </table>
+  </div>
+</div>
