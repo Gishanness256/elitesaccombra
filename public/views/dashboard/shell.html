@@ -1,0 +1,84 @@
+<div id="dash">
+  <aside id="side" aria-label="Dashboard menu">
+    <div
+      class="top"
+      role="button"
+      tabindex="0"
+      title="Click to hide / show the dashboard"
+      aria-label="Hide or show dashboard"
+    >
+      <img id="sbLogo" src="images/logo.jpg" alt="Elite SACCO">
+      <b>Elite SACCO</b>
+    </div>
+
+    <button id="pinBtn" aria-expanded="false" title="Hide the dashboard">
+      <i>☰</i>
+      <span id="pinTx">Hide dashboard</span>
+    </button>
+
+    <button type="button" data-sub="cfg">
+      <i>⚙️</i>Configurations<span class="car">▼</span>
+    </button>
+    <div class="sub" id="cfg">
+      <button type="button" data-v="users">Users</button>
+      <button type="button" data-v="access">Access Levels</button>
+    </div>
+
+    <button type="button" data-v="members"><i>👤</i>Members</button>
+
+    <button type="button" data-sub="svm">
+      <i>💰</i>Savings<span class="car">▼</span>
+    </button>
+    <div class="sub" id="svm">
+      <button type="button" data-v="sdep">Deposits/Withdrawals</button>
+      <button type="button" data-v="sacc">Accounts</button>
+    </div>
+
+    <button type="button" data-sub="lnm" id="lnmBtn">
+      <i>🏦</i>Loans<span class="car">▼</span>
+    </button>
+    <div class="sub" id="lnm">
+      <button type="button" data-v="lreq">Loan Requests</button>
+      <button type="button" data-v="lapp">Loan Approval</button>
+      <button type="button" data-v="lsec">Loans Section</button>
+    </div>
+
+    <button type="button" data-sub="pfm">
+      <i>📒</i>Portfolio<span class="car">▼</span>
+    </button>
+    <div class="sub" id="pfm">
+      <button type="button" data-v="ledger">Ledger</button>
+      <button type="button" data-v="liquidity">Liquidity</button>
+    </div>
+
+    <button type="button" data-sub="rpm">
+      <i>📊</i>Reports<span class="car">▼</span>
+    </button>
+    <div class="sub" id="rpm">
+      <button type="button" data-v="reports">Statements</button>
+      <button type="button" data-v="regrep">Auditing</button>
+    </div>
+
+    <button type="button" data-v="audit"><i>🛡️</i>System Auditor</button>
+
+    <button type="button" class="out" id="logout">
+      <i aria-hidden="true">↪</i>
+      <span>Logout</span>
+    </button>
+  </aside>
+
+  <div id="wm">
+    <img id="wmLogo" src="images/logo.jpg" alt="">
+  </div>
+
+  <div class="wrap">
+    <div class="bar">
+      <div>
+        <h2 id="vt">Welcome</h2>
+        <small id="who">Signed in as admin@elitesacco.co.ug · Admin</small>
+      </div>
+    </div>
+
+    <div id="view"></div>
+  </div>
+</div>
