@@ -1,0 +1,66 @@
+<div class="card">
+  <h3 id="mh">Add member</h3>
+
+  <div class="row">
+    <div>
+      <label for="mf">First name</label>
+      <input id="mf" type="text" autocomplete="given-name">
+    </div>
+
+    <div>
+      <label for="ml">Last name</label>
+      <input id="ml" type="text" autocomplete="family-name">
+    </div>
+
+    <div>
+      <label for="md">Date of birth</label>
+      <input id="md" type="date" autocomplete="bday">
+    </div>
+
+    <div>
+      <label for="mg">Account prefix</label>
+      <input id="mg" type="text" value="F" maxlength="1" autocomplete="off">
+    </div>
+
+    <div>
+      <label for="mn">NIN</label>
+      <input id="mn" type="text" autocomplete="off" style="text-transform:uppercase">
+    </div>
+
+    <div>
+      <label for="mt">Telephone</label>
+      <input id="mt" type="tel" autocomplete="tel">
+    </div>
+
+    <div>
+      <label for="me">Email</label>
+      <input id="me" type="email" autocomplete="email">
+    </div>
+
+    <div class="full">
+      <label for="ma">Address</label>
+      <input id="ma" type="text" autocomplete="street-address">
+    </div>
+  </div>
+
+  <label for="pf">Passport photo</label>
+  <div style="display:flex;gap:1rem;align-items:center">
+    <div class="photo" id="ph">No photo</div>
+    <input id="pf" type="file" accept="image/*" style="max-width:300px">
+  </div>
+
+  <p style="margin-top:.8rem">
+    Account number: <b id="an"></b>
+  </p>
+
+  <button class="btn" id="ms" type="button">Save member</button>
+  <button class="btn alt2" id="mc" type="button">Clear</button>
+  <div id="msg" class="msg" role="status" aria-live="polite"></div>
+</div>
+
+<div class="card">
+  <h3>Members</h3>
+  <div id="membersTable">
+    <!-- app.js renders the members table and edit/delete controls here -->
+  </div>
+</div>
