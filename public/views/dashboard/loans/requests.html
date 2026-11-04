@@ -1,0 +1,95 @@
+<div class="card">
+  <h3>New loan request</h3>
+
+  <div class="row">
+    <div>
+      <label for="qt">Applicant type</label>
+      <select id="qt">
+        <option value="m">SACCO member</option>
+        <option value="n">Non-member</option>
+      </select>
+    </div>
+
+    <div id="qmw">
+      <label for="qm">Member (account)</label>
+      <select id="qm">
+        <option value="">— select member —</option>
+        <!-- app.js populates member options -->
+      </select>
+    </div>
+
+    <div>
+      <label for="qn">Applicant name(s)</label>
+      <input id="qn" type="text" readonly>
+    </div>
+
+    <div>
+      <label for="qd">Date</label>
+      <input id="qd" type="date">
+    </div>
+  </div>
+
+  <div class="row">
+    <div>
+      <label for="qp">Telephone</label>
+      <input id="qp" type="tel" autocomplete="tel">
+    </div>
+
+    <div>
+      <label for="qe">Email</label>
+      <input id="qe" type="email" autocomplete="email">
+    </div>
+
+    <div>
+      <label for="qad">Address</label>
+      <input id="qad" type="text" autocomplete="street-address">
+    </div>
+
+    <div id="qxw">
+      <label for="qx">NIN</label>
+      <input id="qx" type="text" autocomplete="off" style="text-transform:uppercase">
+    </div>
+  </div>
+
+  <div class="row">
+    <div>
+      <label for="qc">Loan category / type</label>
+      <select id="qc">
+        <option>Normal Loan</option>
+        <option>Special Loan</option>
+        <option>Secured Business Loan</option>
+        <option>Agricultural Loan</option>
+        <option>School Fees Loan</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="ql">Loan term (months)</label>
+      <input id="ql" type="number" min="1" max="60" value="6">
+    </div>
+
+    <div>
+      <label for="qam">Amount to borrow (UGX)</label>
+      <input id="qam" type="number" min="1000" step="1000">
+    </div>
+
+    <div>
+      <label for="qr">Interest rate (% per month)</label>
+      <input id="qr" type="number" min="0.01" max="30" step="0.01" placeholder="e.g. 3">
+    </div>
+  </div>
+
+  <p class="note" id="qrn"></p>
+
+  <button class="btn" id="qs" type="button">Submit loan request</button>
+  <button class="btn alt2" id="qx2" type="button">Clear</button>
+
+  <div id="msg" class="msg" role="status" aria-live="polite"></div>
+</div>
+
+<div class="card">
+  <h3>Loan requests</h3>
+  <div id="loanRequestsTable">
+    <!-- app.js renders the requests table here -->
+  </div>
+</div>
