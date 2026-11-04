@@ -1,0 +1,25 @@
+from pathlib import Path
+from PIL import Image, ImageOps
+
+logo_path = Path("public/images/logo.jpg")
+favicon_path = Path("public/favicon.ico")
+
+if not logo_path.exists():
+    raise SystemExit(f"Logo image not found: {logo_path}")
+
+with Image.open(logo_path) as source:
+    logo = source.convert("RGBA")
+
+    # Fit the whole logo into a square without cropping it.
+    square = Image.new("RGBA", (256, 256), "white")
+    fitted = ImageOps.contain(logo, (224, 224))
+    square.alpha_composite(fitted, ((256 - fitted.width) // 2, (256 - fitted.height) // 2))
+
+    favicon_path.parent.mkdir(parents=True, exist_ok=True)
+    square.save(
+        favicon_path,
+        format="ICO",
+        sizes=[(16, 16), (32, 32), (48, 48), (64, 64), (128, 128), (256, 256)],
+    )
+
+print(f"Created {favicon_path}")
