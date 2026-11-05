@@ -1,0 +1,69 @@
+/* Report charts and legends */
+.charts {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1rem;
+}
+
+.charts svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.lg span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-right: 0.8rem;
+  font-size: 0.82rem;
+}
+
+.lg b {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  display: inline-block;
+}
+
+/* Keep report tables usable on narrow screens. */
+#rep .tw {
+  overflow-x: auto;
+}
+
+#rep table {
+  width: 100%;
+}
+
+/* Print only the generated report. */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  #rep,
+  #rep * {
+    visibility: visible;
+  }
+
+  #rep {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    color: #0A1A4A;
+    background: #fff;
+  }
+
+  #rep .noprint,
+  .noprint {
+    display: none !important;
+  }
+}
+
+/* Stack report charts on smaller screens. */
+@media (max-width: 700px) {
+  .charts {
+    grid-template-columns: 1fr;
+  }
+}
