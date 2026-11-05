@@ -1,0 +1,12 @@
+:root {
+  --blue: #1B3C91;
+  --blue-deep: #0F2566;
+  --blue-ink: #0A1A4A;
+  --blue-soft: #E9EEFB;
+  --blue-mid: #6C85CC;
+
+  --white: #fff;
+  --line: #D5DDF2;
+
+  --font: "Manrope", "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+}
