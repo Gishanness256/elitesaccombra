@@ -1,0 +1,56 @@
+<section aria-label="System auditor">
+  <div class="card">
+    <h3>System activity log</h3>
+    <p class="note">
+      Read-only record of actions performed by system users, timestamped with
+      the officer's initials. Entries cannot be edited or deleted.
+    </p>
+
+    <div class="row noprint" aria-label="Filter audit log">
+      <div>
+        <label for="fu">System user</label>
+        <select id="fu">
+          <option value="">All users</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="fa">Activity</label>
+        <select id="fa">
+          <option value="">All activities</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="f1">From date</label>
+        <input id="f1" type="date">
+      </div>
+
+      <div>
+        <label for="f2">To date</label>
+        <input id="f2" type="date">
+      </div>
+
+      <div>
+        <label for="fq">Search log</label>
+        <input
+          id="fq"
+          type="search"
+          placeholder="Search activity, user, initials, or details"
+          autocomplete="off"
+        >
+      </div>
+    </div>
+
+    <p class="note" id="acn" aria-live="polite"></p>
+
+    <div class="noprint">
+      <button class="btn" type="button" id="ac1">Export CSV</button>
+      <button class="btn alt2" type="button" id="ap1">Print</button>
+    </div>
+
+    <div class="tw" id="atb" aria-live="polite">
+      <p class="note">Audit entries will appear here.</p>
+    </div>
+  </div>
+</section>
