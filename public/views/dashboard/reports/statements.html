@@ -1,1 +1,41 @@
+<section class="statements-view" aria-labelledby="statements-title">
+  <header class="bar">
+    <div>
+      <h2 id="statements-title">Member Statements</h2>
+      <small>Review member account activity and generate statements.</small>
+    </div>
+  </header>
 
+  <div class="kpis" id="ak" aria-label="Member account summary"></div>
+
+  <section class="card" aria-labelledby="accounts-title">
+    <h3 id="accounts-title">Member accounts</h3>
+
+    <div class="row noprint">
+      <div>
+        <label for="as">Search members</label>
+        <input
+          id="as"
+          type="search"
+          placeholder="Search by member name or account number"
+          autocomplete="off"
+          aria-describedby="account-search-help"
+        >
+        <p class="note" id="account-search-help">
+          Select an account to view its statement and export options.
+        </p>
+      </div>
+    </div>
+
+    <div class="tw" id="at" aria-live="polite">
+      <p class="note">Member accounts will appear here.</p>
+    </div>
+  </section>
+
+  <section id="ad" aria-live="polite" aria-label="Selected member statement">
+    <div class="card">
+      <h3>Statement details</h3>
+      <p class="note">Select a member account above to view its statement.</p>
+    </div>
+  </section>
+</section>
