@@ -1,1 +1,151 @@
+<section aria-label="Regulatory reports">
+  <div class="card noprint">
+    <h3>Generate regulatory return</h3>
 
+    <div class="row">
+      <div>
+        <label for="rt">Return / template</label>
+        <select id="rt">
+          <option value="sum">Prudential Ratios Summary</option>
+          <option value="sfp">Statement of Financial Position</option>
+          <option value="inc">Statement of Income</option>
+          <option value="liq">Liquidity Return</option>
+          <option value="cap">Capital Adequacy Return</option>
+          <option value="pqr">Portfolio Quality &amp; Loan Loss Provisioning</option>
+          <option value="mem">Membership &amp; Savings Return</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="rb">Reporting basis</label>
+        <select id="rb">
+          <option value="m">Month-end snapshot</option>
+          <option value="mom">Month-on-month average</option>
+          <option value="yoy">Year-on-year average (YTD)</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="ra">As at month</label>
+        <input id="ra" type="month">
+      </div>
+
+      <div id="rnw">
+        <label for="rn">Months in average</label>
+        <select id="rn">
+          <option value="3">3</option>
+          <option value="6">6</option>
+          <option value="12">12</option>
+        </select>
+      </div>
+    </div>
+
+    <p class="note" id="rinfo" aria-live="polite"></p>
+
+    <div class="noprint">
+      <button class="btn" type="button" id="e1">Export PDF</button>
+      <button class="btn alt2" type="button" id="e2">Export Excel</button>
+      <button class="btn alt2" type="button" id="e3">Full pack — PDF</button>
+      <button class="btn alt2" type="button" id="e4">Full pack — Excel</button>
+      <button class="btn alt2" type="button" id="e5">Print</button>
+      <button class="btn alt2" type="button" id="e6">Go to latest month with data</button>
+    </div>
+
+    <div id="msg" class="msg" role="status" aria-live="polite"></div>
+  </div>
+
+  <details class="card noprint">
+    <summary style="cursor:pointer;font-weight:800;color:var(--blue)">
+      Monthly financial inputs (cash, bank, capital, income &amp; expenses)
+    </summary>
+    <p class="note">
+      Loans, savings, and interest are calculated from system records. Enter the
+      financial items not tracked elsewhere. Balance items carry forward to later
+      months when no new value is entered.
+    </p>
+
+    <div class="row">
+      <div>
+        <label for="im">Month</label>
+        <input id="im" type="month">
+      </div>
+    </div>
+
+    <div class="row">
+      <div><label for="in_cash">Cash on hand</label><input id="in_cash" type="number" min="0" step="0.01"></div>
+      <div><label for="in_bank">Bank balances</label><input id="in_bank" type="number" min="0" step="0.01"></div>
+      <div><label for="in_liq">Other liquid investments (T-bills, fixed deposits)</label><input id="in_liq" type="number" min="0" step="0.01"></div>
+      <div><label for="in_oa">Other assets (fixed assets, prepayments)</label><input id="in_oa" type="number" min="0" step="0.01"></div>
+      <div><label for="in_ol">Other liabilities</label><input id="in_ol" type="number" min="0" step="0.01"></div>
+      <div><label for="in_sh">Member share capital</label><input id="in_sh" type="number" min="0" step="0.01"></div>
+      <div><label for="in_rs">Statutory / other reserves</label><input id="in_rs" type="number" min="0" step="0.01"></div>
+      <div><label for="in_fee">Fee &amp; other income (this month)</label><input id="in_fee" type="number" min="0" step="0.01"></div>
+      <div><label for="in_sint">Interest / dividends paid on savings (this month)</label><input id="in_sint" type="number" min="0" step="0.01"></div>
+      <div><label for="in_opx">Operating expenses (this month)</label><input id="in_opx" type="number" min="0" step="0.01"></div>
+    </div>
+
+    <button class="btn" type="button" id="isv">Save inputs for month</button>
+    <div id="msg3" class="msg" role="status" aria-live="polite"></div>
+    <div id="isaved"></div>
+  </details>
+
+  <details class="card noprint">
+    <summary style="cursor:pointer;font-weight:800;color:var(--blue)">
+      Institution &amp; benchmarks
+    </summary>
+    <p class="note">
+      Benchmarks are indicative defaults. Confirm the current regulator guidance
+      before submitting a return. Provision rates apply to principal outstanding
+      by overdue bucket.
+    </p>
+
+    <div class="row">
+      <div><label for="cg_reg">Regulator</label><input id="cg_reg" type="text"></div>
+      <div><label for="cg_lic">Registration / licence no.</label><input id="cg_lic" type="text"></div>
+      <div><label for="cg_minLiq">Minimum liquidity ratio (%)</label><input id="cg_minLiq" type="number" min="0" max="100" step="0.01"></div>
+      <div><label for="cg_minCore">Minimum core capital ratio (%)</label><input id="cg_minCore" type="number" min="0" max="100" step="0.01"></div>
+      <div><label for="cg_minInst">Minimum institutional capital ratio (%)</label><input id="cg_minInst" type="number" min="0" max="100" step="0.01"></div>
+      <div><label for="cg_maxP30">Maximum PAR 30 (%)</label><input id="cg_maxP30" type="number" min="0" max="100" step="0.01"></div>
+      <div><label for="cg_maxP90">Maximum PAR 90 (%)</label><input id="cg_maxP90" type="number" min="0" max="100" step="0.01"></div>
+    </div>
+
+    <h3>Loan loss provision rates</h3>
+    <div class="row">
+      <div><label for="cg_pr0">Provision % — Current (not yet due)</label><input id="cg_pr0" type="number" min="0" max="100" step="0.01"></div>
+      <div><label for="cg_pr1">Provision % — 1–29 days overdue</label><input id="cg_pr1" type="number" min="0" max="100" step="0.01"></div>
+      <div><label for="cg_pr2">Provision % — 30–59 days overdue</label><input id="cg_pr2" type="number" min="0" max="100" step="0.01"></div>
+      <div><label for="cg_pr3">Provision % — 60–89 days overdue</label><input id="cg_pr3" type="number" min="0" max="100" step="0.01"></div>
+      <div><label for="cg_pr4">Provision % — 90+ days overdue</label><input id="cg_pr4" type="number" min="0" max="100" step="0.01"></div>
+    </div>
+
+    <button class="btn" type="button" id="csv">Save settings</button>
+    <div id="msg2" class="msg" role="status" aria-live="polite"></div>
+  </details>
+
+  <section id="rep" aria-label="Generated regulatory return">
+    <div class="card">
+      <h2 id="rtt" style="font-size:1.35rem"></h2>
+      <p class="note" id="rcap"></p>
+      <div id="rres"></div>
+      <div id="rnt" class="note"></div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;margin-top:2rem;font-size:.85rem">
+        <div style="border-top:1.5px solid #000;padding-top:.4rem">
+          Prepared by: ____________________<br>
+          Signature: ____________________<br>
+          Date: ____________________
+        </div>
+        <div style="border-top:1.5px solid #000;padding-top:.4rem">
+          Reviewed by (Treasurer)<br>
+          Signature: ____________________<br>
+          Date: ____________________
+        </div>
+        <div style="border-top:1.5px solid #000;padding-top:.4rem">
+          Approved by (Manager / Chairperson)<br>
+          Signature: ____________________<br>
+          Date: ____________________
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
