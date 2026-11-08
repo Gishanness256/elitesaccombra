@@ -1,7 +1,7 @@
 # Dependencies
 node_modules/
 
-# Environment files and secrets
+# Environment and secrets
 .env
 .env.*
 !.env.example
@@ -16,31 +16,35 @@ pnpm-debug.log*
 # Test and coverage output
 coverage/
 .nyc_output/
-test-results/
 
-# Build output
+# Build and temporary files
 dist/
 build/
-
-# Local databases and generated data
-*.sqlite
-*.sqlite3
-*.db
-
-# Database dumps and backups
-*.dump
-*.sql.gz
-*.backup
-backups/
-
-# Temporary files
-tmp/
+.tmp/
 temp/
 *.tmp
 
-# OS and editor files
+# Local databases, backups, and generated exports
+*.sqlite
+*.sqlite3
+*.db
+database/backups/
+*.bak
+*.dump
+*.csv
+*.xlsx
+*.pdf
+
+# Uploaded or generated user files
+uploads/
+public/uploads/
+
+# Operating system files
 .DS_Store
 Thumbs.db
+Desktop.ini
+
+# Editor and IDE settings
 .vscode/
 .idea/
 *.swp
